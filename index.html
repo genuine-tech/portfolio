@@ -2274,9 +2274,18 @@
             const y = e.clientY / window.innerHeight;
             
             doodles.forEach((doodle, index) => {
-                const speed = (index + 1) * 15;
-                const moveX = (x - 0.5) * speed;
-                const moveY = (y - 0.5) * speed;
+                let moveX, moveY;
+                if (doodle.closest('#home')) {
+                    // In home section, do not change anything
+                    const speed = (index + 1) * 15;
+                    moveX = (x - 0.5) * speed;
+                    moveY = (y - 0.5) * speed;
+                } else {
+                    // Limit movement in other sections to a small jiggle (max ~4-8px)
+                    const jiggleSpeed = 8 + (index % 5) * 2;
+                    moveX = (x - 0.5) * jiggleSpeed;
+                    moveY = (y - 0.5) * jiggleSpeed;
+                }
                 doodle.style.transform = `translate(${moveX}px, ${moveY}px)`;
             });
         });
