@@ -1221,77 +1221,225 @@
         }
 
         .contact-card {
-            background: white;
+            background: #ffffff;
+            background-image: radial-gradient(rgba(0,0,0,0.05) 1px, transparent 1px);
+            background-size: 16px 16px;
             color: var(--color-ink);
-            padding: 3rem;
-            border-radius: 5px;
-            max-width: 600px;
+            padding: 3.5rem 3rem 2.5rem;
+            border-radius: 8px;
+            max-width: 850px;
             margin: 0 auto;
             position: relative;
             transform: rotate(1deg);
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 15px 35px rgba(58,47,47,0.12), 0 5px 15px rgba(0,0,0,0.08);
             border: 2px solid var(--color-ink);
+            overflow: hidden;
         }
         
         .contact-card .washi-tape {
             top: -12px;
+            left: 45%;
         }
 
-        .contact-info {
-            list-style: none;
-            margin-bottom: 2rem;
+        .airmail-border {
+            height: 12px;
+            width: 100%;
+            background: repeating-linear-gradient(
+                -45deg,
+                #e63946,
+                #e63946 16px,
+                #fffdf6 16px,
+                #fffdf6 32px,
+                #2a9d8f 32px,
+                #2a9d8f 48px,
+                #fffdf6 48px,
+                #fffdf6 64px
+            );
+            border-bottom: 2px solid var(--color-ink);
+            position: absolute;
+            top: 0;
+            left: 0;
         }
 
-        .contact-info li {
-            margin-bottom: 1rem;
+        .postage-stamp {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            width: 85px;
+            height: 95px;
+            background: var(--color-note-yellow);
+            border: 2px dashed var(--color-ink);
+            padding: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transform: rotate(5deg);
+            box-shadow: 3px 3px 0 rgba(58,47,47,0.15);
+            font-family: var(--font-hand);
+            line-height: 1.1;
+            z-index: 5;
+            transition: transform 0.3s ease;
+        }
+
+        .postage-stamp:hover {
+            transform: rotate(0deg) scale(1.08);
+        }
+
+        .postage-stamp .stamp-icon { font-size: 1.8rem; margin-bottom: 2px; }
+        .postage-stamp .stamp-text { font-size: 0.95rem; font-weight: 700; color: var(--color-ink); letter-spacing: 1px; }
+        .postage-stamp .stamp-price { font-size: 0.8rem; color: var(--color-accent); font-weight: 700; margin-top: 2px; }
+
+        .postcard-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            gap: 2.5rem;
+            margin-top: 0.5rem;
+            position: relative;
+        }
+
+        .postcard-left {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .contact-box-item {
             display: flex;
             align-items: center;
-            gap: 15px;
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-        
-        .contact-info i {
-            font-size: 1.5rem;
-            color: var(--color-teal);
-        }
-        
-        .contact-info a {
-            color: var(--color-ink);
+            justify-content: space-between;
+            background: var(--color-paper);
+            border: 2px solid var(--color-ink);
+            padding: 0.85rem 1.2rem;
+            border-radius: 10px;
+            box-shadow: 2px 2px 0 rgba(58,47,47,0.2);
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-decoration: none;
-            transition: color 0.3s;
+            color: var(--color-ink);
         }
-        
-        .contact-info a:hover {
+
+        .contact-box-item:hover {
+            transform: translateY(-3px) rotate(-0.5deg);
+            box-shadow: 4px 4px 0 var(--color-ink);
+            background: white;
             color: var(--color-accent);
         }
 
-        .social-links {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            border-top: 2px dashed rgba(0,0,0,0.1);
-            padding-top: 2rem;
-        }
-
-        .social-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--color-ink);
-            color: var(--color-paper);
+        .contact-box-left {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            text-decoration: none;
-            transition: transform 0.3s, background 0.3s;
-            filter: url(#sketchy);
+            gap: 12px;
+            font-weight: 600;
+            font-size: 1rem;
         }
-        
-        .social-btn:hover {
-            transform: scale(1.1) rotate(5deg);
+
+        .contact-box-left i {
+            font-size: 1.4rem;
+            color: var(--color-teal);
+        }
+
+        .copy-btn {
+            background: var(--color-note-yellow);
+            border: 1.5px solid var(--color-ink);
+            border-radius: 6px;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--color-ink);
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .copy-btn:hover {
             background: var(--color-accent);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--color-note-green);
+            border: 2px solid var(--color-ink);
+            padding: 0.7rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #1a7a6e;
+            box-shadow: 2px 2px 0 rgba(58,47,47,0.15);
+            margin-top: 0.5rem;
+            width: fit-content;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #28a745;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px #28a745;
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.25); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+
+        .postcard-right {
+            border-left: 2px dashed rgba(58, 47, 47, 0.2);
+            padding-left: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-card-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.85rem 1.4rem;
+            border-radius: 10px;
+            border: 2px solid var(--color-ink);
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            color: white;
+            box-shadow: 3px 3px 0 var(--color-ink);
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .social-card-btn i {
+            font-size: 1.5rem;
+        }
+
+        .social-card-btn:hover {
+            transform: translateY(-3px) rotate(1deg);
+            box-shadow: 6px 6px 0 var(--color-ink);
+            color: white;
+        }
+
+        .btn-github { background: var(--color-ink); }
+        .btn-linkedin { background: var(--color-teal); }
+        .btn-email { background: var(--color-accent); }
+        .btn-coffee { background: #e08a3c; color: white; }
+
+        .postcard-ps {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px dashed rgba(58, 47, 47, 0.15);
+            text-align: center;
+            font-family: var(--font-hand);
+            font-size: 1.5rem;
+            color: var(--color-ink-soft);
+            transform: rotate(-0.5deg);
         }
 
         footer {
@@ -1473,8 +1621,10 @@
             .award-card { padding: 1.2rem; }
             
             /* Contact card on mobile */
-            .contact-card { padding: 1.5rem 1rem; }
-            .contact-info li { font-size: 1.2rem; word-break: break-all; }
+            .contact-card { padding: 2.5rem 1.2rem 1.5rem; }
+            .postcard-grid { grid-template-columns: 1fr; gap: 1.8rem; }
+            .postcard-right { border-left: none; border-top: 2px dashed rgba(58, 47, 47, 0.2); padding-left: 0; padding-top: 1.8rem; }
+            .postage-stamp { display: none; }
         }
 
         @media (max-width: 480px) {
@@ -2151,20 +2301,95 @@
             </div>
 
             <div class="contact-card fade-in">
+                <div class="airmail-border"></div>
                 <div class="washi-tape"></div>
-                <ul class="contact-info">
-                    <li><i class='bx bx-envelope'></i> <a href="mailto:tn.priyanshu@gmail.com">tn.priyanshu@gmail.com</a></li>
-                    <li><i class='bx bx-phone'></i> <a href="tel:+917972470731">+91 7972470731</a></li>
-                    <li><i class='bx bx-map'></i> <span>Mumbai, India</span></li>
-                </ul>
+                <div class="postage-stamp">
+                    <div class="stamp-icon">🚀</div>
+                    <div class="stamp-text">AIR MAIL</div>
+                    <div class="stamp-price">AI/ML '26</div>
+                </div>
                 
-                <div class="social-links">
-                    <a href="https://github.com/genuine-tech" target="_blank" class="social-btn" aria-label="GitHub">
-                        <i class='bx bxl-github'></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/priyanshu--prasad" target="_blank" class="social-btn" aria-label="LinkedIn">
-                        <i class='bx bxl-linkedin'></i>
-                    </a>
+                <div class="postcard-grid">
+                    <div class="postcard-left">
+                        <span class="hand-text" style="font-size: 1.7rem; color: var(--color-accent); margin-bottom: -0.2rem; display: block; transform: rotate(-2deg);">
+                            let's build something amazing! ✨
+                        </span>
+                        
+                        <div style="display: flex; flex-direction: column; gap: 0.9rem;">
+                            <div class="contact-box-item">
+                                <a href="mailto:tn.priyanshu@gmail.com" class="contact-box-left" style="text-decoration:none; color:inherit;">
+                                    <i class='bx bx-envelope'></i>
+                                    <span>tn.priyanshu@gmail.com</span>
+                                </a>
+                                <button class="copy-btn" onclick="copyContactEmail(this)" aria-label="Copy Email">
+                                    <i class='bx bx-copy'></i> <span>Copy</span>
+                                </button>
+                            </div>
+
+                            <a href="tel:+917972470731" class="contact-box-item">
+                                <div class="contact-box-left">
+                                    <i class='bx bx-phone'></i>
+                                    <span>+91 7972470731</span>
+                                </div>
+                                <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-ink-soft);">Call / WA 💬</span>
+                            </a>
+
+                            <div class="contact-box-item" style="cursor: default;">
+                                <div class="contact-box-left">
+                                    <i class='bx bx-map'></i>
+                                    <span>Mumbai, India</span>
+                                </div>
+                                <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-teal);">IST (UTC+5:30) 🕒</span>
+                            </div>
+                        </div>
+
+                        <div class="status-pill">
+                            <span class="status-dot"></span>
+                            <span>Available for Freelance & AI/ML Roles</span>
+                        </div>
+                    </div>
+
+                    <div class="postcard-right">
+                        <span class="hand-text" style="font-size: 1.5rem; color: var(--color-ink-soft); margin-bottom: -0.2rem; display: block; text-align: center;">
+                            📬 direct stamp links —
+                        </span>
+                        
+                        <a href="https://github.com/genuine-tech" target="_blank" class="social-card-btn btn-github">
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <i class='bx bxl-github'></i>
+                                <span>GitHub / genuine-tech</span>
+                            </div>
+                            <i class='bx bx-right-arrow-alt'></i>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/priyanshu--prasad" target="_blank" class="social-card-btn btn-linkedin">
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <i class='bx bxl-linkedin'></i>
+                                <span>LinkedIn Profile</span>
+                            </div>
+                            <i class='bx bx-right-arrow-alt'></i>
+                        </a>
+
+                        <a href="mailto:tn.priyanshu@gmail.com?subject=Hello%20from%20your%20Portfolio!" class="social-card-btn btn-email">
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <i class='bx bx-send'></i>
+                                <span>Send Quick Email</span>
+                            </div>
+                            <i class='bx bx-right-arrow-alt'></i>
+                        </a>
+
+                        <a href="mailto:tn.priyanshu@gmail.com?subject=Coffee%20Chat%20Request%20%E2%98%95" class="social-card-btn btn-coffee">
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <i class='bx bx-coffee'></i>
+                                <span>Book a Coffee Chat ☕</span>
+                            </div>
+                            <i class='bx bx-right-arrow-alt'></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="postcard-ps">
+                    P.S. I reply faster than a GPU forward pass! ⚡ Let's build intelligent systems together. 🚀
                 </div>
             </div>
 
@@ -2314,6 +2539,24 @@
                 setTimeout(() => sparkle.remove(), 600);
             }
         });
+
+        // Copy Email Function for Contact Card
+        function copyContactEmail(btn) {
+            navigator.clipboard.writeText('tn.priyanshu@gmail.com').then(() => {
+                const span = btn.querySelector('span');
+                const icon = btn.querySelector('i');
+                span.innerText = 'Copied! ✨';
+                icon.className = 'bx bx-check';
+                btn.style.background = '#28a745';
+                btn.style.color = 'white';
+                setTimeout(() => {
+                    span.innerText = 'Copy';
+                    icon.className = 'bx bx-copy';
+                    btn.style.background = 'var(--color-note-yellow)';
+                    btn.style.color = 'var(--color-ink)';
+                }, 2000);
+            });
+        }
     </script>
 </body>
 </html>
