@@ -367,6 +367,10 @@
             transform: rotate(0deg) scale(1.05) translateY(-10px);
             z-index: 20;
         }
+        
+        .polaroid:hover .robot-mascot {
+            transform: rotate(0deg) scale(1.15) translateY(-8px) !important;
+        }
 
         .photo-placeholder {
             width: 100%;
@@ -1446,6 +1450,11 @@
             .logo { font-size: 1.35rem; padding: 4px 12px; }
             .section-title { font-size: 1.8rem; }
             .contact-info li { font-size: 1.1rem; }
+            .robot-mascot {
+                top: -44px !important;
+                left: -12px !important;
+                transform: rotate(-10deg) scale(0.8) !important;
+            }
         }
     </style>
 </head>
@@ -1493,34 +1502,51 @@
 
     <!-- HERO SECTION -->
     <section id="home" class="hero">
-        <!-- Floating Badges -->
-        <div class="badge badge-1">model.fit() 🧠</div>
-        <div class="badge badge-2">coffee > sleep ☕</div>
-        <div class="badge badge-3">ship. learn. repeat. 🚀</div>
-        <div class="badge badge-4">loss ↓ accuracy ↑ 📈</div>
-        <div class="badge badge-5">curious by default 🔍</div>
+        <!-- Floating Speech Bubbles & Badges (Parkky Style) -->
+        <div class="badge badge-1" style="top:7%; left:2%; transform:rotate(-8deg); background:var(--color-note-pink);">model.fit() 🧠</div>
+        <div class="badge badge-2" style="bottom:6%; left:38%; transform:rotate(5deg); background:var(--color-note-green);">coffee > sleep ☕</div>
+        <div class="badge badge-3" style="top:18%; right:2%; transform:rotate(12deg); background:var(--color-note-yellow);">ship. learn. repeat. 🚀</div>
+        <div class="badge badge-4" style="bottom:16%; left:2%; transform:rotate(-6deg); background:var(--color-note-blue);">loss ↓ accuracy ↑ 📈</div>
+        <div class="badge badge-5" style="top:5%; right:24%; transform:rotate(-6deg); background:var(--color-note-orange);">curious by default 🔍</div>
+        
+        <div class="badge section-badge" style="top:26%; left:35%; transform:rotate(-5deg); background:var(--color-note-blue);">hello, world 👋</div>
+        <div class="badge section-badge" style="bottom:8%; right:4%; transform:rotate(6deg); background:var(--color-note-green);">building 10x AI 🤖</div>
+        <div class="badge section-badge" style="bottom:22%; right:30%; transform:rotate(-4deg); background:var(--color-note-yellow);">python & gemini ✨</div>
+        <div class="badge section-badge" style="top:44%; left:1%; transform:rotate(8deg); background:var(--color-note-pink);">10.0 SGPA 🏆</div>
+        <div class="badge section-badge" style="top:62%; right:2%; transform:rotate(-8deg); background:var(--color-note-orange);"><span style="font-family:monospace; font-size:0.85rem;">git commit -m "ship"</span> 🚀</div>
+        <div class="badge section-badge" style="bottom:4%; left:18%; transform:rotate(-3deg); background:var(--color-note-pink);">open source 🌍</div>
 
-        <!-- SVG Doodles -->
-        <svg class="doodle doodle-1 sketchy-border" viewBox="0 0 100 100" fill="none" stroke="var(--color-ink-soft)" stroke-width="2">
-            <path d="M50 10 L60 40 L90 50 L60 60 L50 90 L40 60 L10 50 L40 40 Z" fill="var(--color-note-yellow)" opacity="0.5"/>
-            <path d="M70 20 L75 30 L85 35 L75 40 L70 50 L65 40 L55 35 L65 30 Z" />
+        <!-- Rich Background Art & Sketchy Doodles (Parkky Style) -->
+        <!-- 1. Hand-drawn Sunburst Star in top-left background -->
+        <svg class="doodle" style="top:5%; left:12%; width:85px; height:85px; opacity:0.5; transform:rotate(-15deg);" viewBox="0 0 100 100" fill="none" stroke="var(--color-accent)" stroke-width="2.5">
+            <path d="M50 5 L50 95 M5 50 L95 50 M18 18 L82 82 M18 82 L82 18"/>
+            <circle cx="50" cy="50" r="14" fill="var(--color-note-yellow)" stroke="var(--color-accent)" stroke-width="2.5"/>
         </svg>
 
-        <svg class="doodle doodle-2 sketchy-border" viewBox="0 0 100 100" fill="none" stroke="var(--color-accent)" stroke-width="3">
-            <path d="M10 50 Q 30 10, 50 50 T 90 50" />
-            <path d="M80 40 L90 50 L80 60" />
+        <!-- 2. Curved Scribble Arrow pointing to Polaroid / Robot Mascot -->
+        <svg class="doodle" style="top:12%; left:22%; width:100px; height:75px; opacity:0.75; transform:rotate(12deg);" viewBox="0 0 100 80" fill="none">
+            <path d="M10 15 Q 55 5 85 55" stroke="var(--color-ink)" stroke-width="2.5" stroke-dasharray="5 4" stroke-linecap="round"/>
+            <path d="M72 50 L85 55 L82 40" stroke="var(--color-ink)" stroke-width="2.5" stroke-linecap="round"/>
+            <text x="5" y="32" font-family="var(--font-hand)" font-size="16" fill="var(--color-accent-deep)" font-weight="700">me + AI!</text>
         </svg>
 
-        <!-- Extra Hero Decorations -->
-        <!-- Sticky note -->
-        <div class="sticky-note" style="top:8%; right:3%; transform:rotate(3deg); background:var(--color-note-yellow);">
-            <span style="text-decoration:line-through; opacity:0.5;">404 sleep not found</span><br>
-            <span style="text-decoration:line-through; opacity:0.5;">works on my machine</span><br>
-            <span style="color:var(--color-accent-deep); margin-top:6px; display:inline-block;">just teach the machine ✨</span>
-        </div>
+        <!-- 3. Curved Scribble Arrow pointing to Priyanshu's Name -->
+        <svg class="doodle" style="top:14%; right:14%; width:85px; height:65px; opacity:0.7; transform:rotate(-12deg);" viewBox="0 0 100 80" fill="none">
+            <path d="M85 15 Q 40 10 20 60" stroke="var(--color-teal)" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M22 48 L20 60 L32 58" stroke="var(--color-teal)" stroke-width="2.5" stroke-linecap="round"/>
+            <text x="45" y="28" font-family="var(--font-hand)" font-size="15" fill="var(--color-teal-deep)" font-weight="700">the creator</text>
+        </svg>
 
-        <!-- Neural network SVG -->
-        <svg class="section-deco" style="right:2%; top:30%; width:130px; height:90px; opacity:0.5;" viewBox="0 0 124 92" fill="none" aria-hidden="true">
+        <!-- 4. Sketchy Coffee Mug Doodle -->
+        <svg class="doodle" style="bottom:10%; left:8%; width:75px; height:75px; opacity:0.65; transform:rotate(-12deg);" viewBox="0 0 80 80" fill="none">
+            <path d="M20 25 H60 V55 C60 65 50 72 40 72 C30 72 20 65 20 55 V25 Z" fill="var(--color-note-yellow)" stroke="var(--color-ink)" stroke-width="2.5"/>
+            <path d="M60 32 H68 C73 32 75 38 70 45 C66 50 60 48 60 48" stroke="var(--color-ink)" stroke-width="2.5" fill="none"/>
+            <path d="M32 18 Q35 10 32 6 M48 18 Q51 10 48 6" stroke="var(--color-ink-soft)" stroke-width="2" stroke-linecap="round"/>
+            <text x="40" y="52" text-anchor="middle" font-family="var(--font-hand)" font-size="14" font-weight="700" fill="var(--color-ink)">AI fuel</text>
+        </svg>
+
+        <!-- 5. Neural network SVG -->
+        <svg class="section-deco" style="right:4%; top:32%; width:120px; height:85px; opacity:0.5; transform:rotate(6deg);" viewBox="0 0 124 92" fill="none" aria-hidden="true">
             <line x1="14" y1="20" x2="62" y2="10" stroke="var(--color-ink-soft)" stroke-width="1.6" stroke-linecap="round" opacity="0.45"/>
             <line x1="14" y1="20" x2="62" y2="46" stroke="var(--color-ink-soft)" stroke-width="1.6" stroke-linecap="round" opacity="0.45"/>
             <line x1="14" y1="20" x2="62" y2="82" stroke="var(--color-ink-soft)" stroke-width="1.6" stroke-linecap="round" opacity="0.45"/>
@@ -1530,67 +1556,96 @@
             <line x1="62" y1="10" x2="110" y2="46" stroke="var(--color-ink-soft)" stroke-width="1.6" stroke-linecap="round" opacity="0.45"/>
             <line x1="62" y1="46" x2="110" y2="46" stroke="var(--color-ink-soft)" stroke-width="1.6" stroke-linecap="round" opacity="0.45"/>
             <line x1="62" y1="82" x2="110" y2="46" stroke="var(--color-ink-soft)" stroke-width="1.6" stroke-linecap="round" opacity="0.45"/>
-            <circle cx="14" cy="20" r="5" stroke="var(--color-ink-soft)" stroke-width="2" fill="var(--color-paper)"/>
-            <circle cx="14" cy="72" r="5" stroke="var(--color-ink-soft)" stroke-width="2" fill="var(--color-paper)"/>
-            <circle cx="62" cy="10" r="5" stroke="var(--color-ink-soft)" stroke-width="2" fill="var(--color-paper)"/>
-            <circle cx="62" cy="46" r="5" stroke="var(--color-ink-soft)" stroke-width="2" fill="var(--color-paper)"/>
-            <circle cx="62" cy="82" r="5" stroke="var(--color-ink-soft)" stroke-width="2" fill="var(--color-paper)"/>
-            <circle cx="110" cy="46" r="5" stroke="var(--color-ink-soft)" stroke-width="2" fill="var(--color-accent)" fill-opacity="0.35"/>
+            <circle cx="14" cy="20" r="5" stroke="var(--color-ink)" stroke-width="2" fill="var(--color-note-pink)"/>
+            <circle cx="14" cy="72" r="5" stroke="var(--color-ink)" stroke-width="2" fill="var(--color-note-blue)"/>
+            <circle cx="62" cy="10" r="5" stroke="var(--color-ink)" stroke-width="2" fill="var(--color-note-yellow)"/>
+            <circle cx="62" cy="46" r="5" stroke="var(--color-ink)" stroke-width="2" fill="var(--color-note-green)"/>
+            <circle cx="62" cy="82" r="5" stroke="var(--color-ink)" stroke-width="2" fill="var(--color-note-orange)"/>
+            <circle cx="110" cy="46" r="6" stroke="var(--color-ink)" stroke-width="2" fill="var(--color-accent)"/>
         </svg>
-        <span class="section-deco" style="font-family:var(--font-hand); font-size:1.1rem; color:var(--color-teal-deep); right:3%; top:52%; transform:rotate(-3deg);">↑ neurons, doing their thing</span>
 
-        <!-- Loss chart -->
-        <svg class="section-deco" style="bottom:12%; right:5%; width:110px; height:80px; opacity:0.6;" viewBox="0 0 110 80" fill="none" aria-hidden="true">
-            <path d="M14 8V66H102" stroke="var(--color-ink-soft)" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- 6. Loss chart doodle -->
+        <svg class="section-deco" style="bottom:12%; right:14%; width:105px; height:75px; opacity:0.65; transform:rotate(-5deg);" viewBox="0 0 110 80" fill="none" aria-hidden="true">
+            <path d="M14 8V66H102" stroke="var(--color-ink)" stroke-width="2.5" stroke-linecap="round"/>
             <path d="M18 14C24 44 32 28 42 46C50 58 72 58 98 61" stroke="var(--color-teal)" stroke-width="3" stroke-linecap="round"/>
-            <text x="66" y="30" font-family="var(--font-hand)" font-weight="700" font-size="15" fill="var(--color-ink-soft)">loss ↓</text>
+            <text x="66" y="30" font-family="var(--font-hand)" font-weight="700" font-size="15" fill="var(--color-ink)">loss ↓</text>
         </svg>
 
-        <!-- Robot face -->
-        <div class="section-deco" style="bottom:18%; left:2%; border:2px dashed rgba(58,47,47,0.3); background:rgba(255,255,255,0.8); padding:10px; box-shadow:0 2px 6px rgba(58,47,47,0.15); transform:rotate(6deg);">
-            <svg viewBox="0 0 80 78" fill="none" width="55" height="55">
-                <line x1="40" y1="18" x2="40" y2="9" stroke="var(--color-ink-soft)" stroke-width="2.5" stroke-linecap="round"/>
-                <circle cx="40" cy="6.5" r="3.5" stroke="var(--color-ink-soft)" stroke-width="2" fill="var(--color-accent)" fill-opacity="0.4"/>
-                <rect x="14" y="18" width="52" height="46" rx="11" stroke="var(--color-ink-soft)" stroke-width="3"/>
-                <circle cx="30" cy="39" r="4" fill="var(--color-ink-soft)"/>
-                <circle cx="50" cy="39" r="4" fill="var(--color-ink-soft)"/>
-                <path d="M30 51C34 56 46 56 50 51" stroke="var(--color-ink-soft)" stroke-width="2.5" stroke-linecap="round"/>
-            </svg>
-            <p style="text-align:center; font-family:var(--font-hand); font-size:0.85rem; font-weight:700; color:rgba(58,47,47,0.6); margin-top:4px;">PJ ULTRON</p>
-        </div>
-
-        <!-- AI chip -->
-        <svg class="section-deco" style="left:4%; top:40%; width:65px; height:65px; opacity:0.6; transform:rotate(-6deg);" viewBox="0 0 84 84" fill="none" aria-hidden="true">
-            <g stroke="var(--color-ink-soft)" stroke-width="2.5" stroke-linecap="round">
+        <!-- 7. AI chip doodle -->
+        <svg class="section-deco" style="left:5%; top:54%; width:65px; height:65px; opacity:0.6; transform:rotate(-10deg);" viewBox="0 0 84 84" fill="none" aria-hidden="true">
+            <g stroke="var(--color-ink)" stroke-width="2" stroke-linecap="round">
                 <line x1="26" y1="12" x2="26" y2="22"/><line x1="42" y1="12" x2="42" y2="22"/><line x1="58" y1="12" x2="58" y2="22"/>
                 <line x1="26" y1="62" x2="26" y2="72"/><line x1="42" y1="62" x2="42" y2="72"/><line x1="58" y1="62" x2="58" y2="72"/>
                 <line x1="12" y1="26" x2="22" y2="26"/><line x1="12" y1="42" x2="22" y2="42"/><line x1="12" y1="58" x2="22" y2="58"/>
                 <line x1="62" y1="26" x2="72" y2="26"/><line x1="62" y1="42" x2="72" y2="42"/><line x1="62" y1="58" x2="72" y2="58"/>
             </g>
-            <rect x="22" y="22" width="40" height="40" rx="7" stroke="var(--color-ink-soft)" stroke-width="3" fill="var(--color-paper)"/>
-            <text x="42" y="49" text-anchor="middle" font-family="var(--font-hand)" font-weight="700" font-size="20" fill="var(--color-accent-deep)">AI</text>
+            <rect x="22" y="22" width="40" height="40" rx="7" stroke="var(--color-ink)" stroke-width="2.5" fill="var(--color-note-pink)"/>
+            <text x="42" y="49" text-anchor="middle" font-family="var(--font-hand)" font-weight="700" font-size="20" fill="var(--color-ink)">AI</text>
         </svg>
 
-        <!-- Extra hero badges -->
-        <div class="section-badge" style="top:3%; left:18%; transform:rotate(-7deg); background:var(--color-note-blue);">hello, world 👋</div>
-        <div class="section-badge" style="bottom:8%; right:6%; transform:rotate(4deg); background:var(--color-note-green);">building the future 🤖</div>
-        <div class="section-badge" style="bottom:5%; left:15%; transform:rotate(-3deg); background:var(--color-note-yellow);">AI for good 🌍</div>
-        <div class="section-badge" style="top:6%; right:35%; transform:rotate(5deg); background:var(--color-note-orange);"><span style="font-family:monospace; font-size:0.85rem;">git commit -m "done"</span> ✅</div>
-        <div class="section-badge" style="bottom:15%; left:3%; transform:rotate(-5deg); background:var(--color-note-pink);">from ideas to impact 💡</div>
+        <!-- 8. Sticky notes in background -->
+        <div class="sticky-note" style="top:8%; right:5%; transform:rotate(3deg); background:var(--color-note-yellow); z-index:2;">
+            <span style="text-decoration:line-through; opacity:0.5;">404 sleep not found</span><br>
+            <span style="text-decoration:line-through; opacity:0.5;">works on my machine</span><br>
+            <span style="color:var(--color-accent-deep); margin-top:6px; display:inline-block; font-weight:700;">just teach the machine ✨</span>
+        </div>
 
-        <!-- Sparkles -->
-        <svg class="sparkle-svg" style="left:10%; top:25%; width:35px; height:35px; opacity:0.5; transform:rotate(6deg);" viewBox="0 0 40 40" fill="none"><path d="M20 3C21 13 27 19 37 20C27 21 21 27 20 37C19 27 13 21 3 20C13 19 19 13 20 3Z" stroke="var(--color-accent)" stroke-width="2.5" stroke-linejoin="round" fill="var(--color-accent)" fill-opacity="0.12"/></svg>
-        <svg class="sparkle-svg" style="right:12%; top:12%; width:25px; height:25px; opacity:0.5; transform:rotate(-12deg);" viewBox="0 0 40 40" fill="none"><path d="M20 3C21 13 27 19 37 20C27 21 21 27 20 37C19 27 13 21 3 20C13 19 19 13 20 3Z" stroke="var(--color-teal)" stroke-width="2.5" stroke-linejoin="round" fill="var(--color-teal)" fill-opacity="0.12"/></svg>
-        <svg class="sparkle-svg" style="bottom:10%; left:32%; width:25px; height:25px; opacity:0.4; transform:rotate(12deg);" viewBox="0 0 40 40" fill="none"><path d="M20 3C21 13 27 19 37 20C27 21 21 27 20 37C19 27 13 21 3 20C13 19 19 13 20 3Z" stroke="var(--color-teal)" stroke-width="2.5" stroke-linejoin="round" fill="var(--color-teal)" fill-opacity="0.12"/></svg>
+        <div class="sticky-note" style="bottom:15%; left:25%; transform:rotate(-6deg); background:var(--color-note-blue); z-index:2; padding:12px 16px;">
+            <span style="font-family:var(--font-hand); font-size:1.15rem; color:var(--color-ink); font-weight:700;">💡 note to self:</span><br>
+            <span style="font-family:var(--font-hand); font-size:1.1rem; color:var(--color-teal-deep);">build things that matter!</span>
+        </div>
 
-        <!-- Washi tape strips -->
-        <span class="section-deco" style="top:5%; left:38%; width:110px; height:26px; transform:rotate(-24deg); background:repeating-linear-gradient(45deg, rgba(255,255,255,0.28) 0 5px, transparent 5px 11px), rgba(42,157,143,0.4); mix-blend-mode:multiply; box-shadow:0 1px 2px rgba(58,47,47,0.12);"></span>
-        <span class="section-deco" style="top:18%; right:4%; width:100px; height:22px; transform:rotate(18deg); background:repeating-linear-gradient(45deg, rgba(255,255,255,0.28) 0 5px, transparent 5px 11px), rgba(224,138,60,0.45); mix-blend-mode:multiply; box-shadow:0 1px 2px rgba(58,47,47,0.12);"></span>
+        <!-- 9. Sparkles -->
+        <svg class="sparkle-svg" style="left:8%; top:22%; width:35px; height:35px; opacity:0.6; transform:rotate(6deg);" viewBox="0 0 40 40" fill="none"><path d="M20 3C21 13 27 19 37 20C27 21 21 27 20 37C19 27 13 21 3 20C13 19 19 13 20 3Z" stroke="var(--color-accent)" stroke-width="2.5" stroke-linejoin="round" fill="var(--color-accent)" fill-opacity="0.15"/></svg>
+        <svg class="sparkle-svg" style="right:10%; top:15%; width:28px; height:28px; opacity:0.6; transform:rotate(-12deg);" viewBox="0 0 40 40" fill="none"><path d="M20 3C21 13 27 19 37 20C27 21 21 27 20 37C19 27 13 21 3 20C13 19 19 13 20 3Z" stroke="var(--color-teal)" stroke-width="2.5" stroke-linejoin="round" fill="var(--color-teal)" fill-opacity="0.15"/></svg>
+        <svg class="sparkle-svg" style="bottom:20%; right:38%; width:25px; height:25px; opacity:0.5; transform:rotate(15deg);" viewBox="0 0 40 40" fill="none"><path d="M20 3C21 13 27 19 37 20C27 21 21 27 20 37C19 27 13 21 3 20C13 19 19 13 20 3Z" stroke="var(--color-accent)" stroke-width="2.5" stroke-linejoin="round" fill="var(--color-accent)" fill-opacity="0.15"/></svg>
+        <svg class="sparkle-svg" style="top:50%; left:45%; width:22px; height:22px; opacity:0.5; transform:rotate(-8deg);" viewBox="0 0 40 40" fill="none"><path d="M20 3C21 13 27 19 37 20C27 21 21 27 20 37C19 27 13 21 3 20C13 19 19 13 20 3Z" stroke="var(--color-teal)" stroke-width="2.5" stroke-linejoin="round" fill="var(--color-teal)" fill-opacity="0.15"/></svg>
+
+        <!-- 10. Washi tape strips in background -->
+        <span class="section-deco" style="top:6%; left:36%; width:115px; height:26px; transform:rotate(-22deg); background:repeating-linear-gradient(45deg, rgba(255,255,255,0.28) 0 5px, transparent 5px 11px), rgba(42,157,143,0.45); mix-blend-mode:multiply; box-shadow:0 1px 2px rgba(58,47,47,0.12);"></span>
+        <span class="section-deco" style="top:20%; right:6%; width:105px; height:22px; transform:rotate(16deg); background:repeating-linear-gradient(45deg, rgba(255,255,255,0.28) 0 5px, transparent 5px 11px), rgba(224,138,60,0.45); mix-blend-mode:multiply; box-shadow:0 1px 2px rgba(58,47,47,0.12);"></span>
 
         <div class="container hero-grid">
             <div class="hero-left fade-in">
                 <div class="polaroid scrap-tilt-1">
                     <div class="washi-tape"></div>
+                    <!-- Cute Android / Robot Mascot peeking over the top of the polaroid (Parkky style!) -->
+                    <div class="robot-mascot" style="position:absolute; top:-56px; left:-18px; z-index:25; transform:rotate(-14deg); filter:drop-shadow(0 4px 8px rgba(58,47,47,0.22)); transition:all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor:pointer;" title="PJ Ultron AI Mascot - Beep Boop!">
+                        <svg viewBox="0 0 110 95" width="85" height="73" fill="none">
+                            <!-- Left Antenna -->
+                            <line x1="32" y1="24" x2="20" y2="7" stroke="#3a2f2f" stroke-width="3.5" stroke-linecap="round"/>
+                            <circle cx="18" cy="5" r="5" fill="#e63946" stroke="#3a2f2f" stroke-width="1.5"/>
+                            <!-- Right Antenna -->
+                            <line x1="78" y1="24" x2="90" y2="7" stroke="#3a2f2f" stroke-width="3.5" stroke-linecap="round"/>
+                            <circle cx="92" cy="5" r="5" fill="#e63946" stroke="#3a2f2f" stroke-width="1.5"/>
+                            <!-- Android Head Dome -->
+                            <path d="M 12 70 A 43 43 0 0 1 98 70 Z" fill="#2a9d8f" stroke="#3a2f2f" stroke-width="3.5" stroke-linejoin="round"/>
+                            <!-- Inner Shine -->
+                            <path d="M 24 55 A 30 30 0 0 1 65 32" stroke="rgba(255,255,255,0.45)" stroke-width="4" stroke-linecap="round" fill="none"/>
+                            <!-- Eyes -->
+                            <circle cx="38" cy="48" r="6.5" fill="#ffffff" stroke="#3a2f2f" stroke-width="2"/>
+                            <circle cx="39" cy="48" r="3" fill="#3a2f2f"/>
+                            <circle cx="37" cy="46" r="1" fill="#ffffff"/>
+                            <circle cx="72" cy="48" r="6.5" fill="#ffffff" stroke="#3a2f2f" stroke-width="2"/>
+                            <circle cx="73" cy="48" r="3" fill="#3a2f2f"/>
+                            <circle cx="71" cy="46" r="1" fill="#ffffff"/>
+                            <!-- Rosy Cheeks -->
+                            <ellipse cx="26" cy="58" rx="5.5" ry="3.5" fill="#f8d7e3" opacity="0.9"/>
+                            <ellipse cx="84" cy="58" rx="5.5" ry="3.5" fill="#f8d7e3" opacity="0.9"/>
+                            <!-- Happy Smile -->
+                            <path d="M 46 58 Q 55 65 64 58" stroke="#3a2f2f" stroke-width="3" stroke-linecap="round" fill="none"/>
+                            <!-- Bottom Neck Rim -->
+                            <rect x="10" y="70" width="90" height="8" rx="4" fill="#3a2f2f"/>
+                            <!-- Paws / Hands gripping polaroid edge -->
+                            <ellipse cx="28" cy="78" rx="9" ry="7" fill="#ffffff" stroke="#3a2f2f" stroke-width="3"/>
+                            <ellipse cx="82" cy="78" rx="9" ry="7" fill="#ffffff" stroke="#3a2f2f" stroke-width="3"/>
+                            <!-- Little claws/fingers on paws -->
+                            <line x1="25" y1="81" x2="25" y2="76" stroke="#3a2f2f" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="31" y1="81" x2="31" y2="76" stroke="#3a2f2f" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="79" y1="81" x2="79" y2="76" stroke="#3a2f2f" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="85" y1="81" x2="85" y2="76" stroke="#3a2f2f" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
                     <img src="profile.jpg" alt="Photo of Priyanshu Prasad" class="sketchy-border" style="width:100%; aspect-ratio:4/5; object-fit:cover; object-position:center top; display:block;">
                     <div class="polaroid-caption">that's me! 👋</div>
                 </div>
