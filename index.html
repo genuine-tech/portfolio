@@ -367,10 +367,6 @@
             transform: rotate(0deg) scale(1.05) translateY(-10px);
             z-index: 20;
         }
-        
-        .polaroid:hover .robot-mascot {
-            transform: rotate(0deg) scale(1.15) translateY(-8px) !important;
-        }
 
         .photo-placeholder {
             width: 100%;
@@ -623,6 +619,31 @@
             transform: scale(1.08) translateY(-3px) !important;
         }
 
+        /* Scrapbook Background Stickers */
+        .sticker {
+            position: absolute;
+            background: white;
+            border: 2px solid var(--color-ink);
+            border-radius: 12px;
+            padding: 6px 14px;
+            box-shadow: 3px 3px 0 var(--color-ink);
+            font-family: var(--font-hand);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--color-ink);
+            z-index: 4;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: auto;
+            cursor: default;
+        }
+        .sticker:hover {
+            transform: scale(1.15) rotate(0deg) !important;
+            z-index: 10;
+        }
+
         /* Dashed connector lines */
         .deco-line {
             position: absolute;
@@ -633,7 +654,7 @@
         }
 
         @media (max-width: 900px) {
-            .sticky-note, .code-float, .section-badge, .sparkle-svg, .deco-line { display: none; }
+            .sticky-note, .code-float, .section-badge, .sticker, .sparkle-svg, .deco-line { display: none; }
             .section-deco { display: none; }
         }
         
@@ -1155,38 +1176,14 @@
 
         /* ================= CONTACT & FOOTER ================= */
         .contact-section {
-            background-color: var(--color-ink);
-            color: var(--color-paper);
-            padding: 6rem 0 2rem 0;
+            background-color: transparent;
+            color: var(--color-ink);
+            padding: 5rem 0 2rem 0;
             position: relative;
-            margin-top: 5rem;
-        }
-        
-        /* Jagged top edge */
-        .contact-section::before {
-            content: "";
-            position: absolute;
-            top: -20px;
-            left: 0;
-            width: 100%;
-            height: 40px;
-            background: var(--color-ink);
-            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 40' preserveAspectRatio='none'%3E%3Cpath d='M0,40 L0,20 Q25,0 50,20 T100,20 T150,20 T200,20 T250,20 T300,20 T350,20 T400,20 T450,20 T500,20 T550,20 T600,20 T650,20 T700,20 T750,20 T800,20 T850,20 T900,20 T950,20 T1000,20 L1000,40 Z' fill='black'/%3E%3C/svg%3E");
-            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 40' preserveAspectRatio='none'%3E%3Cpath d='M0,40 L0,20 Q25,0 50,20 T100,20 T150,20 T200,20 T250,20 T300,20 T350,20 T400,20 T450,20 T500,20 T550,20 T600,20 T650,20 T700,20 T750,20 T800,20 T850,20 T900,20 T950,20 T1000,20 L1000,40 Z' fill='black'/%3E%3C/svg%3E");
-            mask-size: 100px 100%;
-            -webkit-mask-size: 100px 100%;
-        }
-
-        .contact-section .section-title, .contact-section .section-intro {
-            color: var(--color-paper);
-        }
-        
-        .contact-section .section-title svg {
-            stroke: var(--color-accent);
         }
 
         .contact-card {
-            background: var(--color-paper);
+            background: white;
             color: var(--color-ink);
             padding: 3rem;
             border-radius: 5px;
@@ -1194,7 +1191,8 @@
             margin: 0 auto;
             position: relative;
             transform: rotate(1deg);
-            box-shadow: 10px 10px 0 rgba(230, 57, 70, 0.2);
+            box-shadow: var(--shadow-lg);
+            border: 2px solid var(--color-ink);
         }
         
         .contact-card .washi-tape {
@@ -1262,10 +1260,10 @@
             text-align: center;
             margin-top: 4rem;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 2px dashed rgba(58, 47, 47, 0.15);
             font-family: var(--font-hand);
             font-size: 1.3rem;
-            color: rgba(255,253,246,0.6);
+            color: var(--color-ink-soft);
         }
 
         .washi-back-to-top {
@@ -1357,7 +1355,7 @@
             header svg {
                 display: none; /* Hide paper clip on mobile so it doesn't block menu/logo */
             }
-            .status-badge, .badge, .section-badge, .sticky-note, .code-float, .doodle, .deco-line {
+            .status-badge, .badge, .section-badge, .sticker, .sticky-note, .code-float, .doodle, .deco-line {
                 display: none !important; /* Hide ALL floating overlapping decorations on phone for clean reading */
             }
             .hamburger {
@@ -1450,11 +1448,6 @@
             .logo { font-size: 1.35rem; padding: 4px 12px; }
             .section-title { font-size: 1.8rem; }
             .contact-info li { font-size: 1.1rem; }
-            .robot-mascot {
-                top: -44px !important;
-                left: -12px !important;
-                transform: rotate(-10deg) scale(0.8) !important;
-            }
         }
     </style>
 </head>
@@ -1609,43 +1602,6 @@
             <div class="hero-left fade-in">
                 <div class="polaroid scrap-tilt-1">
                     <div class="washi-tape"></div>
-                    <!-- Cute Android / Robot Mascot peeking over the top of the polaroid (Parkky style!) -->
-                    <div class="robot-mascot" style="position:absolute; top:-56px; left:-18px; z-index:25; transform:rotate(-14deg); filter:drop-shadow(0 4px 8px rgba(58,47,47,0.22)); transition:all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor:pointer;" title="PJ Ultron AI Mascot - Beep Boop!">
-                        <svg viewBox="0 0 110 95" width="85" height="73" fill="none">
-                            <!-- Left Antenna -->
-                            <line x1="32" y1="24" x2="20" y2="7" stroke="#3a2f2f" stroke-width="3.5" stroke-linecap="round"/>
-                            <circle cx="18" cy="5" r="5" fill="#e63946" stroke="#3a2f2f" stroke-width="1.5"/>
-                            <!-- Right Antenna -->
-                            <line x1="78" y1="24" x2="90" y2="7" stroke="#3a2f2f" stroke-width="3.5" stroke-linecap="round"/>
-                            <circle cx="92" cy="5" r="5" fill="#e63946" stroke="#3a2f2f" stroke-width="1.5"/>
-                            <!-- Android Head Dome -->
-                            <path d="M 12 70 A 43 43 0 0 1 98 70 Z" fill="#2a9d8f" stroke="#3a2f2f" stroke-width="3.5" stroke-linejoin="round"/>
-                            <!-- Inner Shine -->
-                            <path d="M 24 55 A 30 30 0 0 1 65 32" stroke="rgba(255,255,255,0.45)" stroke-width="4" stroke-linecap="round" fill="none"/>
-                            <!-- Eyes -->
-                            <circle cx="38" cy="48" r="6.5" fill="#ffffff" stroke="#3a2f2f" stroke-width="2"/>
-                            <circle cx="39" cy="48" r="3" fill="#3a2f2f"/>
-                            <circle cx="37" cy="46" r="1" fill="#ffffff"/>
-                            <circle cx="72" cy="48" r="6.5" fill="#ffffff" stroke="#3a2f2f" stroke-width="2"/>
-                            <circle cx="73" cy="48" r="3" fill="#3a2f2f"/>
-                            <circle cx="71" cy="46" r="1" fill="#ffffff"/>
-                            <!-- Rosy Cheeks -->
-                            <ellipse cx="26" cy="58" rx="5.5" ry="3.5" fill="#f8d7e3" opacity="0.9"/>
-                            <ellipse cx="84" cy="58" rx="5.5" ry="3.5" fill="#f8d7e3" opacity="0.9"/>
-                            <!-- Happy Smile -->
-                            <path d="M 46 58 Q 55 65 64 58" stroke="#3a2f2f" stroke-width="3" stroke-linecap="round" fill="none"/>
-                            <!-- Bottom Neck Rim -->
-                            <rect x="10" y="70" width="90" height="8" rx="4" fill="#3a2f2f"/>
-                            <!-- Paws / Hands gripping polaroid edge -->
-                            <ellipse cx="28" cy="78" rx="9" ry="7" fill="#ffffff" stroke="#3a2f2f" stroke-width="3"/>
-                            <ellipse cx="82" cy="78" rx="9" ry="7" fill="#ffffff" stroke="#3a2f2f" stroke-width="3"/>
-                            <!-- Little claws/fingers on paws -->
-                            <line x1="25" y1="81" x2="25" y2="76" stroke="#3a2f2f" stroke-width="2" stroke-linecap="round"/>
-                            <line x1="31" y1="81" x2="31" y2="76" stroke="#3a2f2f" stroke-width="2" stroke-linecap="round"/>
-                            <line x1="79" y1="81" x2="79" y2="76" stroke="#3a2f2f" stroke-width="2" stroke-linecap="round"/>
-                            <line x1="85" y1="81" x2="85" y2="76" stroke="#3a2f2f" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </div>
                     <img src="profile.jpg" alt="Photo of Priyanshu Prasad" class="sketchy-border" style="width:100%; aspect-ratio:4/5; object-fit:cover; object-position:center top; display:block;">
                     <div class="polaroid-caption">that's me! 👋</div>
                 </div>
@@ -1674,15 +1630,15 @@
 
     <!-- ABOUT / RULE BOOK -->
     <section id="about" class="section-padding">
-        <!-- About section decorations -->
-        <div class="section-badge" style="top:30px; right:8%; transform:rotate(6deg); background:var(--color-note-pink);">first principles 💡</div>
-        <div class="section-badge" style="bottom:50px; right:18%; transform:rotate(5deg); background:var(--color-note-blue);">think → build → learn 🔄</div>
-        <div class="section-badge" style="bottom:80px; left:5%; transform:rotate(-4deg); background:var(--color-note-green);">solve real problems 🎯</div>
-        <div class="section-badge" style="top:120px; left:6%; transform:rotate(-5deg); background:var(--color-note-yellow);">always debugging 🐛</div>
-        <div class="section-badge" style="top:50%; right:4%; transform:rotate(8deg); background:var(--color-note-orange);">engineering > excuses ⚙️</div>
-        <div class="section-badge" style="bottom:220px; left:4%; transform:rotate(5deg); background:var(--color-note-pink);">open source believer 💙</div>
-        <div class="section-badge" style="top:30%; left:8%; transform:rotate(-4deg); background:var(--color-note-green);">AI + Software ❤️</div>
-        <div class="section-badge" style="bottom:140px; right:6%; transform:rotate(-6deg); background:var(--color-note-yellow);">never stop improving 📚</div>
+        <!-- About section decorations & vinyl stickers -->
+        <div class="sticker" style="top:25px; right:8%; transform:rotate(6deg); background:var(--color-note-pink);">💡 First Principles</div>
+        <div class="sticker" style="bottom:40px; right:15%; transform:rotate(5deg); background:var(--color-note-blue);">🔄 Think → Build → Learn</div>
+        <div class="sticker" style="bottom:70px; left:5%; transform:rotate(-4deg); background:var(--color-note-green);">🎯 Solve Real Problems</div>
+        <div class="sticker" style="top:120px; left:5%; transform:rotate(-5deg); background:var(--color-note-yellow);">🐛 Always Debugging</div>
+        <div class="sticker" style="top:48%; right:3%; transform:rotate(8deg); background:var(--color-note-orange);">⚙️ Engineering > Excuses</div>
+        <div class="sticker" style="bottom:200px; left:4%; transform:rotate(5deg); background:var(--color-note-pink);">💙 Open Source Believer</div>
+        <div class="sticker" style="top:28%; left:6%; transform:rotate(-4deg); background:var(--color-note-green);">❤️ AI + Software</div>
+        <div class="sticker" style="bottom:130px; right:5%; transform:rotate(-6deg); background:var(--color-note-yellow);">📚 Never Stop Improving</div>
         <svg class="sparkle-svg" style="left:5%; top:40px; width:30px; height:30px; opacity:0.5; transform:rotate(-6deg);" viewBox="0 0 40 40" fill="none"><path d="M20 3C21 13 27 19 37 20C27 21 21 27 20 37C19 27 13 21 3 20C13 19 19 13 20 3Z" stroke="var(--color-accent)" stroke-width="2.5" stroke-linejoin="round" fill="var(--color-accent)" fill-opacity="0.12"/></svg>
         <svg class="sparkle-svg" style="right:6%; bottom:120px; width:25px; height:25px; opacity:0.5; transform:rotate(12deg);" viewBox="0 0 40 40" fill="none"><path d="M20 3C21 13 27 19 37 20C27 21 21 27 20 37C19 27 13 21 3 20C13 19 19 13 20 3Z" stroke="var(--color-teal)" stroke-width="2.5" stroke-linejoin="round" fill="var(--color-teal)" fill-opacity="0.12"/></svg>
         <span class="code-float" style="top:20%; left:3%; transform:rotate(-8deg);">git push origin main 🚀</span>
@@ -1734,16 +1690,16 @@
 
     <!-- PROJECTS -->
     <section id="projects" class="section-padding">
-        <!-- Projects section decorations -->
-        <div class="section-badge" style="top:25px; right:5%; transform:rotate(5deg); background:var(--color-note-green);">Gemini powered ✨</div>
-        <div class="section-badge" style="bottom:50px; left:5%; transform:rotate(-3deg); background:var(--color-note-orange);">hackathon survivor 🏁</div>
-        <div class="section-badge" style="top:50%; right:3%; transform:rotate(-5deg); background:var(--color-note-yellow);">production ready 🚢</div>
-        <div class="section-badge" style="top:120px; left:4%; transform:rotate(-6deg); background:var(--color-note-pink);">multimodal AI 🎙️</div>
-        <div class="section-badge" style="top:32%; left:3%; transform:rotate(5deg); background:var(--color-note-blue);">GitHub Actions ⚡</div>
-        <div class="section-badge" style="top:35%; right:4%; transform:rotate(-4deg); background:var(--color-note-green);">tree-sitter 🌳</div>
-        <div class="section-badge" style="bottom:260px; right:3%; transform:rotate(6deg); background:var(--color-note-yellow);">CI/CD all day 🚀</div>
-        <div class="section-badge" style="bottom:180px; left:4%; transform:rotate(-5deg); background:var(--color-note-pink);">automation first 🤖</div>
-        <div class="section-badge" style="bottom:80px; right:8%; transform:rotate(4deg); background:var(--color-note-blue);">code meets docs 📖</div>
+        <!-- Projects section decorations & vinyl stickers -->
+        <div class="sticker" style="top:25px; right:5%; transform:rotate(5deg); background:var(--color-note-green);">✨ Gemini Powered</div>
+        <div class="sticker" style="bottom:50px; left:5%; transform:rotate(-3deg); background:var(--color-note-orange);">🏁 Hackathon Survivor</div>
+        <div class="sticker" style="top:50%; right:3%; transform:rotate(-5deg); background:var(--color-note-yellow);">🚢 Production Ready</div>
+        <div class="sticker" style="top:120px; left:4%; transform:rotate(-6deg); background:var(--color-note-pink);">🎙️ Multimodal AI</div>
+        <div class="sticker" style="top:32%; left:3%; transform:rotate(5deg); background:var(--color-note-blue);">⚡ GitHub Actions</div>
+        <div class="sticker" style="top:35%; right:4%; transform:rotate(-4deg); background:var(--color-note-green);">🌳 Tree-Sitter</div>
+        <div class="sticker" style="bottom:260px; right:3%; transform:rotate(6deg); background:var(--color-note-yellow);">🚀 CI/CD All Day</div>
+        <div class="sticker" style="bottom:180px; left:4%; transform:rotate(-5deg); background:var(--color-note-pink);">🤖 Automation First</div>
+        <div class="sticker" style="bottom:80px; right:8%; transform:rotate(4deg); background:var(--color-note-blue);">📖 Code Meets Docs</div>
         <svg class="sparkle-svg" style="left:5%; top:80px; width:35px; height:35px; opacity:0.5; transform:rotate(8deg);" viewBox="0 0 40 40" fill="none"><path d="M20 3C21 13 27 19 37 20C27 21 21 27 20 37C19 27 13 21 3 20C13 19 19 13 20 3Z" stroke="var(--color-accent)" stroke-width="2.5" stroke-linejoin="round" fill="var(--color-accent)" fill-opacity="0.12"/></svg>
         <svg class="sparkle-svg" style="right:3%; top:45%; width:28px; height:28px; opacity:0.4; transform:rotate(-15deg);" viewBox="0 0 40 40" fill="none"><path d="M20 3C21 13 27 19 37 20C27 21 21 27 20 37C19 27 13 21 3 20C13 19 19 13 20 3Z" stroke="var(--color-teal)" stroke-width="2.5" stroke-linejoin="round" fill="var(--color-teal)" fill-opacity="0.12"/></svg>
         <span class="code-float" style="top:18%; right:5%; transform:rotate(3deg);">python > pseudocode 🐍</span>
@@ -1843,17 +1799,17 @@
 
     <!-- SKILLS / TOOLKIT -->
     <section id="skills" class="section-padding">
-        <!-- Skills section decorations -->
-        <div class="section-badge" style="top:25px; right:8%; transform:rotate(5deg); background:var(--color-note-yellow);">Python 🐍</div>
-        <div class="section-badge" style="bottom:30px; left:5%; transform:rotate(4deg); background:var(--color-note-blue);">Docker 🐳</div>
-        <div class="section-badge" style="bottom:40px; right:5%; transform:rotate(-5deg); background:var(--color-note-green);">Problem Solver 🧩</div>
-        <div class="section-badge" style="top:80px; left:5%; transform:rotate(-5deg); background:var(--color-note-pink);">Java ☕</div>
-        <div class="section-badge" style="top:25%; left:3%; transform:rotate(6deg); background:var(--color-note-orange);">Machine Learning 🤖</div>
-        <div class="section-badge" style="top:28%; right:4%; transform:rotate(-4deg); background:var(--color-note-blue);">Deep Learning 🧠</div>
-        <div class="section-badge" style="top:55%; left:4%; transform:rotate(-6deg); background:var(--color-note-green);">Computer Vision 👁️</div>
-        <div class="section-badge" style="top:60%; right:5%; transform:rotate(5deg); background:var(--color-note-pink);">NLP 💬</div>
-        <div class="section-badge" style="bottom:150px; left:6%; transform:rotate(3deg); background:var(--color-note-yellow);">Always Learning 📚</div>
-        <div class="section-badge" style="bottom:130px; right:6%; transform:rotate(-5deg); background:var(--color-note-orange);">Git & GitHub 🌿</div>
+        <!-- Skills section decorations & vinyl stickers -->
+        <div class="sticker" style="top:25px; right:8%; transform:rotate(5deg); background:var(--color-note-yellow);">🐍 Python Master</div>
+        <div class="sticker" style="bottom:30px; left:5%; transform:rotate(4deg); background:var(--color-note-blue);">🐳 Dockerized</div>
+        <div class="sticker" style="bottom:40px; right:5%; transform:rotate(-5deg); background:var(--color-note-green);">🧩 Problem Solver</div>
+        <div class="sticker" style="top:80px; left:5%; transform:rotate(-5deg); background:var(--color-note-pink);">☕ Java & OOP</div>
+        <div class="sticker" style="top:25%; left:3%; transform:rotate(6deg); background:var(--color-note-orange);">🤖 Machine Learning</div>
+        <div class="sticker" style="top:28%; right:4%; transform:rotate(-4deg); background:var(--color-note-blue);">🧠 Deep Learning</div>
+        <div class="sticker" style="top:55%; left:4%; transform:rotate(-6deg); background:var(--color-note-green);">👁️ Computer Vision</div>
+        <div class="sticker" style="top:60%; right:5%; transform:rotate(5deg); background:var(--color-note-pink);">💬 NLP Specialist</div>
+        <div class="sticker" style="bottom:150px; left:6%; transform:rotate(3deg); background:var(--color-note-yellow);">📚 Always Learning</div>
+        <div class="sticker" style="bottom:130px; right:6%; transform:rotate(-5deg); background:var(--color-note-orange);">🌿 Git & GitHub</div>
         <svg class="sparkle-svg" style="right:4%; top:50%; width:30px; height:30px; opacity:0.5;" viewBox="0 0 40 40" fill="none"><path d="M20 3C21 13 27 19 37 20C27 21 21 27 20 37C19 27 13 21 3 20C13 19 19 13 20 3Z" stroke="var(--color-accent)" stroke-width="2.5" stroke-linejoin="round" fill="var(--color-accent)" fill-opacity="0.12"/></svg>
         <svg class="sparkle-svg" style="left:3%; bottom:30%; width:22px; height:22px; opacity:0.4; transform:rotate(20deg);" viewBox="0 0 40 40" fill="none"><path d="M20 3C21 13 27 19 37 20C27 21 21 27 20 37C19 27 13 21 3 20C13 19 19 13 20 3Z" stroke="var(--color-teal)" stroke-width="2.5" stroke-linejoin="round" fill="var(--color-teal)" fill-opacity="0.12"/></svg>
         <span class="code-float" style="top:35%; right:3%; transform:rotate(4deg);">pip install dreams 📦</span>
@@ -1922,15 +1878,15 @@
 
     <!-- EDUCATION -->
     <section class="section-padding">
-        <!-- Education section decorations -->
-        <div class="section-badge" style="top:20px; right:8%; transform:rotate(4deg); background:var(--color-note-orange);">CGPA 9.8 🔥</div>
-        <div class="section-badge" style="top:25px; left:10%; transform:rotate(-5deg); background:var(--color-note-yellow);">10.0 SGPA 🌟</div>
-        <div class="section-badge" style="bottom:30px; right:6%; transform:rotate(-3deg); background:var(--color-note-green);">TCET AIML 🎓</div>
-        <div class="section-badge" style="top:100px; left:5%; transform:rotate(5deg); background:var(--color-note-pink);">continuous learner 📚</div>
-        <div class="section-badge" style="top:32%; right:5%; transform:rotate(-4deg); background:var(--color-note-blue);">top of class 🏆</div>
-        <div class="section-badge" style="top:55%; left:4%; transform:rotate(6deg); background:var(--color-note-yellow);">Alpha Junior College 🏫</div>
-        <div class="section-badge" style="top:70%; right:4%; transform:rotate(-5deg); background:var(--color-note-orange);">St. Francis De Sales 🎓</div>
-        <div class="section-badge" style="bottom:100px; left:6%; transform:rotate(4deg); background:var(--color-note-pink);">building foundations 🧱</div>
+        <!-- Education section decorations & vinyl stickers -->
+        <div class="sticker" style="top:20px; right:8%; transform:rotate(4deg); background:var(--color-note-orange);">🔥 CGPA 9.8</div>
+        <div class="sticker" style="top:25px; left:10%; transform:rotate(-5deg); background:var(--color-note-yellow);">🌟 10.0 SGPA</div>
+        <div class="sticker" style="bottom:30px; right:6%; transform:rotate(-3deg); background:var(--color-note-green);">🎓 TCET AIML</div>
+        <div class="sticker" style="top:100px; left:5%; transform:rotate(5deg); background:var(--color-note-pink);">📚 Continuous Learner</div>
+        <div class="sticker" style="top:32%; right:5%; transform:rotate(-4deg); background:var(--color-note-blue);">🏆 Top of Class</div>
+        <div class="sticker" style="top:55%; left:4%; transform:rotate(6deg); background:var(--color-note-yellow);">🏫 Alpha Junior College</div>
+        <div class="sticker" style="top:70%; right:4%; transform:rotate(-5deg); background:var(--color-note-orange);">🎓 St. Francis De Sales</div>
+        <div class="sticker" style="bottom:100px; left:6%; transform:rotate(4deg); background:var(--color-note-pink);">🧱 Building Foundations</div>
         <svg class="sparkle-svg" style="left:6%; top:30%; width:28px; height:28px; opacity:0.5; transform:rotate(-8deg);" viewBox="0 0 40 40" fill="none"><path d="M20 3C21 13 27 19 37 20C27 21 21 27 20 37C19 27 13 21 3 20C13 19 19 13 20 3Z" stroke="var(--color-accent)" stroke-width="2.5" stroke-linejoin="round" fill="var(--color-accent)" fill-opacity="0.12"/></svg>
         <svg class="sparkle-svg" style="right:5%; bottom:35%; width:24px; height:24px; opacity:0.45; transform:rotate(15deg);" viewBox="0 0 40 40" fill="none"><path d="M20 3C21 13 27 19 37 20C27 21 21 27 20 37C19 27 13 21 3 20C13 19 19 13 20 3Z" stroke="var(--color-teal)" stroke-width="2.5" stroke-linejoin="round" fill="var(--color-teal)" fill-opacity="0.12"/></svg>
         <span class="code-float" style="top:15%; left:4%; transform:rotate(-5deg);">while(alive){learn();}</span>
@@ -1992,15 +1948,15 @@
 
     <!-- HONORS & AWARDS -->
     <section class="section-padding">
-        <!-- Awards section decorations -->
-        <div class="section-badge" style="top:20px; left:8%; transform:rotate(-6deg); background:var(--color-note-yellow);">Top Performer 🏆</div>
-        <div class="section-badge" style="top:30px; right:6%; transform:rotate(5deg); background:var(--color-note-pink);">Built in 24 Hours ⏱️</div>
-        <div class="section-badge" style="bottom:30px; right:10%; transform:rotate(-4deg); background:var(--color-note-orange);">Keep Shipping 🚀</div>
-        <div class="section-badge" style="top:100px; right:5%; transform:rotate(6deg); background:var(--color-note-blue);">NeoFuture Hackathon 🏁</div>
-        <div class="section-badge" style="top:35%; left:3%; transform:rotate(-5deg); background:var(--color-note-green);">Infosys Certified 📜</div>
-        <div class="section-badge" style="top:50%; right:4%; transform:rotate(5deg); background:var(--color-note-pink);">Udemy Masterclass 🎓</div>
-        <div class="section-badge" style="bottom:200px; left:4%; transform:rotate(-4deg); background:var(--color-note-yellow);">NPTEL Scholar 📚</div>
-        <div class="section-badge" style="bottom:80px; left:12%; transform:rotate(3deg); background:var(--color-note-orange);">competition ready 🔥</div>
+        <!-- Awards section decorations & vinyl stickers -->
+        <div class="sticker" style="top:20px; left:8%; transform:rotate(-6deg); background:var(--color-note-yellow);">🏆 Top Performer</div>
+        <div class="sticker" style="top:30px; right:6%; transform:rotate(5deg); background:var(--color-note-pink);">⏱️ Built in 24 Hours</div>
+        <div class="sticker" style="bottom:30px; right:10%; transform:rotate(-4deg); background:var(--color-note-orange);">🚀 Keep Shipping</div>
+        <div class="sticker" style="top:100px; right:5%; transform:rotate(6deg); background:var(--color-note-blue);">🏁 NeoFuture Hackathon</div>
+        <div class="sticker" style="top:35%; left:3%; transform:rotate(-5deg); background:var(--color-note-green);">📜 Infosys Certified</div>
+        <div class="sticker" style="top:50%; right:4%; transform:rotate(5deg); background:var(--color-note-pink);">🎓 Udemy Masterclass</div>
+        <div class="sticker" style="bottom:200px; left:4%; transform:rotate(-4deg); background:var(--color-note-yellow);">📚 NPTEL Scholar</div>
+        <div class="sticker" style="bottom:80px; left:12%; transform:rotate(3deg); background:var(--color-note-orange);">🔥 Competition Ready</div>
         <svg class="sparkle-svg" style="right:4%; top:25%; width:32px; height:32px; opacity:0.5; transform:rotate(10deg);" viewBox="0 0 40 40" fill="none"><path d="M20 3C21 13 27 19 37 20C27 21 21 27 20 37C19 27 13 21 3 20C13 19 19 13 20 3Z" stroke="var(--color-accent)" stroke-width="2.5" stroke-linejoin="round" fill="var(--color-accent)" fill-opacity="0.12"/></svg>
         <svg class="sparkle-svg" style="left:5%; bottom:25%; width:26px; height:26px; opacity:0.45;" viewBox="0 0 40 40" fill="none"><path d="M20 3C21 13 27 19 37 20C27 21 21 27 20 37C19 27 13 21 3 20C13 19 19 13 20 3Z" stroke="var(--color-teal)" stroke-width="2.5" stroke-linejoin="round" fill="var(--color-teal)" fill-opacity="0.12"/></svg>
         <span class="code-float" style="top:20%; right:5%; transform:rotate(4deg);">if (!success) retry();</span>
@@ -2077,10 +2033,13 @@
 
     <!-- CONTACT & FOOTER -->
     <section id="contact" class="contact-section" style="position: relative; overflow: hidden;">
-        <div class="section-badge" style="top:25px; left:10%; transform:rotate(-5deg); background:var(--color-note-blue);">let's collaborate 🤝</div>
-        <div class="section-badge" style="top:40px; right:12%; transform:rotate(6deg); background:var(--color-note-green);">coffee chat? ☕</div>
-        <div class="section-badge" style="bottom:70px; left:8%; transform:rotate(4deg); background:var(--color-note-yellow);">open to work 💼</div>
-        <div class="section-badge" style="bottom:60px; right:10%; transform:rotate(-4deg); background:var(--color-note-pink);">fast responder ⚡</div>
+        <!-- Contact section decorations & vinyl stickers -->
+        <div class="sticker" style="top:25px; left:10%; transform:rotate(-5deg); background:var(--color-note-blue);">🤝 Let's Collaborate</div>
+        <div class="sticker" style="top:40px; right:12%; transform:rotate(6deg); background:var(--color-note-green);">☕ Coffee Chat?</div>
+        <div class="sticker" style="bottom:120px; left:8%; transform:rotate(4deg); background:var(--color-note-yellow);">💼 Open To Work</div>
+        <div class="sticker" style="bottom:100px; right:10%; transform:rotate(-4deg); background:var(--color-note-pink);">⚡ Fast Responder</div>
+        <div class="sticker" style="top:45%; left:5%; transform:rotate(8deg); background:var(--color-note-orange);">📬 Say Hello!</div>
+        <div class="sticker" style="top:50%; right:5%; transform:rotate(-6deg); background:var(--color-note-green);">🌐 Mumbai, India</div>
         <div class="container">
             <div style="text-align: center; margin-bottom: 3rem;">
                 <span class="section-intro">let's connect</span>
