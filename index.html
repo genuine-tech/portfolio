@@ -1334,39 +1334,118 @@
         }
 
         @media (max-width: 768px) {
+            html, body {
+                overflow-x: hidden;
+                width: 100%;
+            }
+            .container {
+                padding: 0 1.25rem;
+            }
+            .section-padding {
+                padding: 4.5rem 0;
+            }
             header {
                 top: 10px;
-                width: 95%;
-                padding: 0.5rem 1.2rem;
+                width: 92%;
+                padding: 0.6rem 1rem;
                 border-radius: 30px;
             }
-            .status-badge {
-                display: none;
+            header svg {
+                display: none; /* Hide paper clip on mobile so it doesn't block menu/logo */
+            }
+            .status-badge, .badge, .section-badge, .sticky-note, .code-float, .doodle, .deco-line {
+                display: none !important; /* Hide ALL floating overlapping decorations on phone for clean reading */
             }
             .hamburger {
                 display: block;
+                z-index: 1001;
             }
             nav ul {
                 position: fixed;
-                top: 70px;
+                top: 65px;
                 right: -100%;
-                width: 250px;
-                height: 100vh;
+                width: 85%;
+                max-width: 300px;
+                height: calc(100vh - 65px);
                 background: var(--color-paper);
                 flex-direction: column;
                 align-items: center;
-                padding-top: 2rem;
-                transition: right 0.3s ease;
-                box-shadow: -5px 0 15px rgba(0,0,0,0.05);
-                border-left: 2px dashed rgba(58, 47, 47, 0.1);
+                justify-content: flex-start;
+                padding: 2.5rem 1rem;
+                transition: right 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                box-shadow: -10px 0 25px rgba(0,0,0,0.15);
+                border-left: 2px dashed rgba(58, 47, 47, 0.2);
+                z-index: 1000;
+                gap: 1rem;
             }
             nav ul.active {
                 right: 0;
             }
-            .hero h1 { font-size: 3rem; }
-            .hero h2 { font-size: 1.5rem; }
-            .hero-tagline { font-size: 1.6rem; }
-            .section-title { font-size: 2.5rem; }
+            nav li {
+                width: 100%;
+                text-align: center;
+            }
+            nav a {
+                display: block;
+                width: 100%;
+                font-size: 1.5rem;
+                padding: 0.75rem 1rem;
+            }
+            .hero {
+                padding-top: 110px;
+                padding-bottom: 40px;
+                min-height: auto;
+            }
+            .hero-grid {
+                gap: 2.5rem;
+            }
+            .hero h1 { font-size: 2.5rem; }
+            .hero h2 { font-size: 1.3rem; }
+            .hero-tagline { font-size: 1.35rem; }
+            .section-title { font-size: 2rem; margin-bottom: 1.8rem; }
+            .summary-card { padding: 1.5rem; margin-top: 1.5rem; }
+            
+            /* Rule book / notebook on mobile */
+            .notebook { padding: 1.5rem; }
+            .page-left, .page-right { padding: 1rem 0; }
+            
+            /* Project cards on mobile */
+            .project-card { padding: 1.5rem; margin-bottom: 1.5rem; }
+            .project-title { font-size: 1.5rem; }
+            .project-desc { font-size: 1.05rem; }
+            
+            /* Toolkit on mobile */
+            .corkboard { padding: 1.5rem 1rem; }
+            .skill-group h3 { font-size: 1.4rem; }
+            .skill-pill { font-size: 1.05rem; padding: 6px 14px; }
+            
+            /* Education / Timeline on mobile */
+            .timeline { padding-left: 1.5rem; }
+            .timeline-item { margin-left: 0; }
+            .timeline-content { padding: 1.2rem; }
+            .edu-title { font-size: 1.3rem; }
+            
+            /* Honors & Awards on mobile */
+            .awards-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .award-card { padding: 1.2rem; }
+            
+            /* Contact card on mobile */
+            .contact-card { padding: 1.5rem 1rem; }
+            .contact-info li { font-size: 1.2rem; word-break: break-all; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 1rem; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero-tagline { font-size: 1.2rem; }
+            .polaroid { max-width: 220px; padding: 10px 10px 40px 10px; }
+            .polaroid-caption { font-size: 1.5rem; bottom: 8px; }
+            .logo { font-size: 1.35rem; padding: 4px 12px; }
+            .section-title { font-size: 1.8rem; }
+            .contact-info li { font-size: 1.1rem; }
         }
     </style>
 </head>
