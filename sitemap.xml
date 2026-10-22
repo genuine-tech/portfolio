@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://priyanshuprasad.vercel.app/</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://priyanshuprasad.vercel.app/profile.jpg</image:loc>
+      <image:title>Priyanshu Prasad - AI/ML Developer</image:title>
+      <image:caption>Priyanshu Prasad, AI/ML Developer &amp; Hackathon Innovator</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://priyanshuprasad.vercel.app/logo.png</image:loc>
+      <image:title>Priyanshu Prasad Logo</image:title>
+      <image:caption>Priyanshu Prasad Portfolio Logo</image:caption>
+    </image:image>
   </url>
 </urlset>

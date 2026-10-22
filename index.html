@@ -9,15 +9,26 @@
     <meta name="theme-color" content="#fffdf6">
     <meta name="google-site-verification" content="SFwt90r7C9Jbx_IpgKHn2fBmz-VFBiI_lwunVoDIJ74" />
     
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✦</text></svg>">
+    <!-- Favicon & Brand Icons (Google Search, Browsers, Mobile) -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="shortcut icon" href="/favicon.ico">
     
     <!-- Open Graph / Social Media Preview -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://priyanshuprasad.vercel.app/">
-    <meta property="og:title" content="Priyanshu Prasad | AI/ML Developer">
-    <meta property="og:description" content="Building intelligent systems that detect, protect, and automate — one model at a time. Explore hackathon projects, AI/ML models, and technical docs.">
+    <meta property="og:title" content="Priyanshu Prasad | AI/ML Developer & Hackathon Innovator">
+    <meta property="og:description" content="Portfolio of Priyanshu Prasad, an AI/ML Developer and Hackathon Innovator building intelligent systems that detect, protect, and automate.">
     <meta property="og:image" content="https://priyanshuprasad.vercel.app/profile.jpg">
+    <meta property="og:image:width" content="740">
+    <meta property="og:image:height" content="1024">
+    <meta property="og:image:alt" content="Priyanshu Prasad - AI/ML Developer">
+    <meta property="og:logo" content="https://priyanshuprasad.vercel.app/logo.png">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -33,31 +44,52 @@
     <!-- BoxIcons for Contact Links -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <!-- Structured Data: Person (JSON-LD) -->
+    <!-- Structured Data: WebSite & Person (JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Priyanshu Prasad",
-      "url": "https://priyanshuprasad.vercel.app/",
-      "image": "https://priyanshuprasad.vercel.app/profile.jpg",
-      "jobTitle": "AI/ML Developer",
-      "description": "An AI/ML Developer demonstrating a powerful combination of hands-on hackathon innovations, deep data intelligence, and advanced specialized training in Generative AI & NLP.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Mumbai",
-        "addressCountry": "IN"
-      },
-      "email": "tn.priyanshu@gmail.com",
-      "sameAs": [
-        "https://github.com/genuine-tech/",
-        "https://www.linkedin.com/in/priyanshu--prasad/"
-      ],
-      "knowsAbout": ["Machine Learning", "Natural Language Processing", "Computer Vision", "Python", "Generative AI"],
-      "alumniOf": {
-        "@type": "CollegeOrUniversity",
-        "name": "TCET Mumbai"
-      }
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://priyanshuprasad.vercel.app/#website",
+          "url": "https://priyanshuprasad.vercel.app/",
+          "name": "Priyanshu Prasad",
+          "alternateName": [
+            "Priyanshu Prasad AI/ML",
+            "Priyanshu Prasad Portfolio",
+            "Priyanshu Prasad TCET"
+          ],
+          "description": "Portfolio of Priyanshu Prasad, an AI/ML Developer and Hackathon Innovator building intelligent systems that detect, protect, and automate.",
+          "publisher": {
+            "@id": "https://priyanshuprasad.vercel.app/#person"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://priyanshuprasad.vercel.app/#person",
+          "name": "Priyanshu Prasad",
+          "url": "https://priyanshuprasad.vercel.app/",
+          "image": "https://priyanshuprasad.vercel.app/profile.jpg",
+          "logo": "https://priyanshuprasad.vercel.app/logo.png",
+          "jobTitle": "AI/ML Developer",
+          "description": "An AI/ML Developer demonstrating a powerful combination of hands-on hackathon innovations, deep data intelligence, and advanced specialized training in Generative AI & NLP.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Mumbai",
+            "addressCountry": "IN"
+          },
+          "email": "tn.priyanshu@gmail.com",
+          "sameAs": [
+            "https://github.com/genuine-tech/",
+            "https://www.linkedin.com/in/priyanshu--prasad/"
+          ],
+          "knowsAbout": ["Machine Learning", "Natural Language Processing", "Computer Vision", "Python", "Generative AI", "Deep Learning", "TensorFlow", "PyTorch"],
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "TCET Mumbai"
+          }
+        }
+      ]
     }
     </script>
 
@@ -237,7 +269,7 @@
 
         .logo {
             font-family: var(--font-hand);
-            font-size: 1.6rem;
+            font-size: 1.55rem;
             font-weight: 700;
             color: var(--color-ink);
             text-decoration: none;
@@ -245,22 +277,54 @@
             transform: rotate(-2deg);
             display: inline-flex;
             align-items: center;
-            gap: 0.25rem;
+            gap: 0.5rem;
             background: #ffffff;
-            padding: 4px 16px;
+            padding: 4px 16px 4px 5px;
             border-radius: 9999px;
             border: 1.5px solid rgba(58, 47, 47, 0.15);
             box-shadow: 0 2px 6px rgba(58, 47, 47, 0.15);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease;
         }
         
         .logo:hover {
-            transform: rotate(0deg) scale(1.06);
+            transform: rotate(0deg) scale(1.05);
             box-shadow: 0 4px 12px rgba(58, 47, 47, 0.25);
             border-color: var(--color-accent);
         }
+
+        .logo-avatar-wrap {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 1.5px solid var(--color-accent);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-note-yellow);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover .logo-avatar-wrap {
+            transform: rotate(-6deg) scale(1.08);
+        }
+
+        .logo-avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .logo-name {
+            line-height: 1;
+            padding-bottom: 2px;
+        }
         
-        .logo span {
+        .logo .logo-sparkle,
+        .logo span.logo-sparkle {
             color: var(--color-accent);
         }
 
@@ -1664,7 +1728,8 @@
             .hero-tagline { font-size: 1.2rem; }
             .polaroid { max-width: 220px; padding: 10px 10px 40px 10px; }
             .polaroid-caption { font-size: 1.5rem; bottom: 8px; }
-            .logo { font-size: 1.35rem; padding: 4px 12px; }
+            .logo { font-size: 1.3rem; padding: 3px 12px 3px 4px; gap: 0.35rem; }
+            .logo-avatar-wrap { width: 26px; height: 26px; }
             .section-title { font-size: 1.8rem; }
             .contact-info li { font-size: 1.1rem; }
         }
@@ -1690,7 +1755,12 @@
     <header>
         <div class="nav-container">
             <div class="header-brand">
-                <a href="#home" class="logo">priyanshu<span>✦</span></a>
+                <a href="#home" class="logo" aria-label="Priyanshu Prasad - Home">
+                    <span class="logo-avatar-wrap">
+                        <img src="logo.png" alt="Priyanshu Prasad" class="logo-avatar" width="32" height="32" loading="eager">
+                    </span>
+                    <span class="logo-name">priyanshu</span><span class="logo-sparkle">✦</span>
+                </a>
                 <div class="status-badge"><span class="status-dot"></span> open to work</div>
             </div>
             <nav>
